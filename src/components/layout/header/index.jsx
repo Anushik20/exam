@@ -50,11 +50,11 @@ export default function Header() {
     const isSearchPage = location.pathname.startsWith("/search");
 
     return (
-        <header className="bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full h-[300px]">
-            <div className={`flex justify-around items-center w-auto ${isSearchPage ? 'gap-[700px]' : 'gap-[1150px]'}`}>
+        <header className=" sm:w-[1650px] sm:h-[500px] bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full h-[300px]">
+            <div className={`sm:flex-col sm:gap-[2px] flex justify-around items-center w-auto ${isSearchPage ? 'gap-[700px]' : 'gap-[1150px]'}`}>
                 <a href='/' className={`text-white font-bold text-4xl pt-[100px]`}>Movie <span className="font-bold text-4xl text-yellow-300">X</span></a>
                 <form onSubmit={handleSearch}>
-                    <GoSearch className={`text-white text-3xl relative left-[250px] top-[117px] ${isSearchPage ? 'left-[650px]' : 'left-[250px]'}`} />
+                    <GoSearch className={`sm:left-[250px] text-white text-3xl relative left-[250px] top-[117px] ${isSearchPage ? 'left-[650px]' : 'left-[250px]'}`} />
                     <input
                         type="text"
                         className={`text-white border border-yellow-300 p-5 mt-[70px] relative rounded-[50px] bg-inherit ${isSearchPage ? 'left-[-180px] w-[900px]' : 'w-[300px]'}`}
