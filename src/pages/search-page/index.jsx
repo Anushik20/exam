@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IoIosStar, IoIosTime } from "react-icons/io";
+// Layout
 import { Header, Footer } from "../../components/layout";
-import { Link } from "react-router-dom";
+// React icon
 import { MdErrorOutline } from "react-icons/md";
+import MovieCard from "../../components/movie-card";
 
 const api_key = "8eef5e7695b13b80e65992352495e848";
 
-const SearchResultPage = () => {
+export default function SearchResultPage() {
     const { query } = useParams();
     const [searchResults, setSearchResults] = useState([]);
 
@@ -31,6 +32,7 @@ const SearchResultPage = () => {
         }
     }, [query]);
 
+
     return (
         <>
             <Header />
@@ -38,22 +40,7 @@ const SearchResultPage = () => {
                 {searchResults.length > 0 ? (
                     <div className="flex flex-wrap gap-20 justify-center items-center mt-20">
                         {searchResults.map((movie) => (
-                            <Link to={`/movie/${movie.id}`}>
-                                <div key={movie.id} className="shadow-2xl w-[400px] border-4 border-yellow-300 p-10 rounded-[40px] flex flex-col gap-5">
-                                    <img className="rounded-[20px] w-full" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width="160" alt={movie.original_title} />
-                                    <h3 className="font-bold  text-2xl">{movie.original_title}</h3>
-                                    <div className="flex justify-between">
-                                        <div className="flex gap-2 font-bold">
-                                            <h3 className="text-yellow-300 text-2xl"><IoIosStar /></h3>
-                                            <span className="text-black">{movie.release_date}</span>
-                                        </div>
-                                        <div className="flex gap-2 font-bold">
-                                            <h1 className="text-yellow-300 text-2xl"><IoIosStar /></h1>
-                                            <span className="text-black">{movie.vote_average}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
+                            <MovieCard key={movie.id} movie={movie}/>
                         ))}
                     </div>
                 ) : (
@@ -67,5 +54,3 @@ const SearchResultPage = () => {
         </>
     );
 };
-
-export default SearchResultPage;
