@@ -64,7 +64,7 @@ export default function Header() {
                     {searchResults.length > 0 && (
                         <div className="absolute mt-12 bg-white border border-gray-200 rounded-md shadow-md">
                             {searchResults.map((title, index) => (
-                                <div key={index} className="py-2 px-4 cursor-pointer hover:bg-gray-100" onClick={() => handleAutocompleteSelection(title)}>
+                                <div key={index} className={`py-2 px-4 cursor-pointer hover:bg-gray-100`} onClick={() => handleAutocompleteSelection(title)}>
                                     {title}
                                 </div>
                             ))}

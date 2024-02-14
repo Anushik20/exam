@@ -40,13 +40,13 @@ export default function SearchResultPage() {
         <>
             <Header />
             <div>
-                <h1 className='text-white text-5xl text-center font-bold'>Movie Trailer</h1>
                 {loading ? (
                     <div className="flex justify-center items-center h-full">
                         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Nmb2tuNmN2aXRoYm03OHN4cTlpbDVqZTd0MjBiODRwbHo3ajZoMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Loading" />
                     </div>
                 ) : (
                     <>
+                        <h1 className='text-white text-5xl text-center font-bold'>Movie Trailer</h1>
                         {searchResults.length > 0 ? (
                             <div className="sm:flex sm:w-[1910px] flex flex-wrap gap-20 justify-center items-center mt-20">
                                 {searchResults.map((movie) => (
