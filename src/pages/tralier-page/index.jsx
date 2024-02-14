@@ -44,7 +44,7 @@ export default function TrailerPage() {
     return (
         <>
             <Header />
-            <div className='bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full h-[800px] flex flex-col gap-40 justify-center items-center'>
+            <div className='sm:w-[1900px] sm:h-[2150px] bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full h-[800px] flex flex-col gap-40 justify-center items-center'>
                 <h1 className='text-white text-5xl text-center font-bold'>Movie Trailer</h1>
                 {loading ? (
                     <div className="flex justify-center items-center h-full">

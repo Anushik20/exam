@@ -2,8 +2,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // Movies
 import { setPopularMovies, setRatedMovies } from '../../redux/actions/index'
-// React icon
-import { FaAngleRight } from "react-icons/fa6";
 // Layout
 import { Header, Footer } from "../../components/layout";
 // Movie Cars
@@ -55,7 +53,7 @@ export default function Home() {
             ) : (
                 <>
                     <Header />
-                    <div className="sm:w-[1650px] bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full">
+                    <div className="xl:w-[1890px] bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full">
                         <div className="flex gap-10 justify-center items-center">
                             <div className="sm:flex-col flex justify-center items-center gap-10 pb-40">
                                 <img className="sm:w-[900px] sm:h-[600px] w-[700px] h-[500px] shadow-2xl rounded-2xl" src="https://s3-alpha-sig.figma.com/img/140d/fd6f/d289cf1280148e031106db38fb3c6001?Expires=1708300800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iE7DrP-wr38TNj~0f5U8EY-QWR86Jmmztk8lgmn2dWQOdJ54zaiFf3g~OQkHNG0T9nYCT8m2h47BIyBLRfpjOlEQ0ggVlBbMz9N~YUqMtKVNrZPlUi9g~tv4gkH~aqPaoqRAkiUmbELTKgznsj00JS0iwTQFqCmkL6NuO~R9i8lAJgV0T5weErh0EyCVQu7ukNRTWxDjTmTlQfyHZOh8ac8Yh22IzwpHLI1L8nPG2wCWlQP04fMhBpmXyN0P4HbCPvqWmfMkbkK9xM7hWIvCXcqTwGNNzxFpNTvr3SyUno2uEOcCCRqJx-FMSkCzW9LcmhHFIlW5zlaUARmkSNEjHA__" alt="Marvel Film Poster" />
@@ -68,7 +66,7 @@ export default function Home() {
                             <h1 className="text-white sm:text-4xl sm:text-start sm:w-[800px] text-3xl pb-20">Stream unlimited popularMovies and TV shows on your phone, tablet, laptop, and TV without paying more.</h1>
                         </div>
                     </div>
-                    <div className="sm:w-[1630px]">
+                    <div className="sm:w-[1890px]">
                         <h1 className="sm:text-center text-center font-bold text-4xl mt-40 mb-20">Most popular films</h1>
                         <div className="flex justify-center items-center flex-wrap gap-20">
                             {memoizedPopularMovies.map((movie) => (
@@ -88,3 +86,4 @@ export default function Home() {
         </>
     );
 }
+
