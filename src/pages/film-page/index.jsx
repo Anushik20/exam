@@ -57,35 +57,36 @@ export default function Film() {
             ) : (
                 <>
                     <Header />
-                    <main className='sm:w-[1890px] bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full'>
+                    <main className='sm:w-[1890px] bg-white w-3/4 pt-20'>
                         <div className='w-full h-[1400px] flex gap-[200px] flex-col'>
                             {memoizedMovieData && (
                                 <>
-                                    <div className='flex gap-[200px] pl-[120px]'>
-                                        <img className='rounded-[30px] w-[400px] h-[600px]' src={`https://image.tmdb.org/t/p/w500${memoizedMovieData.poster_path}`} alt={memoizedMovieData.original_title} />
+                                    <div className='flex gap-[100px] pl-[50px]'>
+                                        <img className='w-[600px] h-[800px]' src={`https://image.tmdb.org/t/p/w500${memoizedMovieData.poster_path}`} alt={memoizedMovieData.original_title} />
                                         <div>
-                                            <h1 className='text-yellow-300 font-bold text-5xl'>{memoizedMovieData.original_title}</h1>
+                                            <h1 className='font-bold text-5xl drop-shadow-md'>{memoizedMovieData.original_title}</h1>
                                             <div className='flex mt-16 flex-col gap-10'>
-                                                <h1 className={iconsDesign}><IoMdTime /><span className='text-white text-2xl font-bold'>{memoizedMovieData.release_date}</span></h1>
-                                                <h1 className={iconsDesign}><FaStar /><span className='text-white text-2xl font-bold'>{memoizedMovieData.vote_average.toFixed(1)}</span></h1>
-                                                <h1 className={iconsDesign}><TbChairDirector /><span className='text-white text-2xl font-bold'>{memoizedActors[0]?.name}</span></h1>
+                                                <div>
+                                                    <p className='text-2xl font-medium'>About movie: <span className='text-[15px] italic font-normal'>{memoizedMovieData.overview}</span></p>
+                                                </div>
+                                                <h1 className={iconsDesign}><IoMdTime /><span className='text-black text-2xl font-medium'>{memoizedMovieData.release_date}</span></h1>
+                                                <h1 className={iconsDesign}><FaStar /><span className='text-black text-2xl font-medium'>{memoizedMovieData.vote_average.toFixed(1)}</span></h1>
+                                                <h1 className={iconsDesign}><TbChairDirector /><span className='text-black text-2xl font-medium'>{memoizedActors[0]?.name}</span></h1>
                                             </div>
-                                            <div className='text-yellow-300 mt-32'>
+                                            <div className='mt-32'>
+                                                <h1 className='text-3xl font-medium pb-10'>Actors</h1>
                                                 <div className='flex items-center gap-20'>
-                                                    <FaRegArrowAltCircleLeft className='text-[50px]' />
                                                     {memoizedActors.map(actor => (
                                                         <div key={actor.id}>
-                                                            <img className='rounded-[50%] w-[100px] h-[140px]' src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt={actor.name} />
+                                                            <img className='w-[100px] h-[150px]' src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt={actor.name} />
                                                         </div>
                                                     ))}
-                                                    <FaRegArrowAltCircleRight className='text-[50px]' />
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div className='flex flex-col'>
-                                        <h1 className='text-white font-bold text-center text-4xl pb-20'>Trailers</h1>
+                                        <h1 className='text-black font-bold text-center text-4xl pb-20'>Trailers</h1>
                                         <div className='flex justify-center gap-20'>
                                             {memoizedVideoKeys.map((key, index) => (
                                                 <div key={index} className='relative'>
@@ -95,7 +96,7 @@ export default function Film() {
                                                     <div className='rounded-[30px] border-4 border-yellow-300'>
                                                         <iframe
                                                             src={`https://www.youtube.com/embed/${key}`}
-                                                            className='rounded-[30px] w-[400px] h-[300px]'
+                                                            className='rounded-[30px] w-[250px] h-[200px]'
                                                         ></iframe>
                                                     </div>
                                                 </div>
@@ -106,8 +107,8 @@ export default function Film() {
                             )}
                         </div>
                     </main>
-                    <h1 className='sm:text-center sm:w-[1870px] text-5xl text-center font-bold m-20'>Similar Films</h1>
-                    <div className='sm:w-[1870px] flex flex-wrap gap-20 justify-center'>
+                    <h1 className='sm:text-center sm:w-[1870px] bg-white w-3/4 p-20 text-5xl text-center font-bold'>Similar Films</h1>
+                    <div className='sm:w-[1870px] w-3/4 bg-white flex flex-wrap gap-20 justify-center pb-20'>
                         {memoizedSimilarFilms.map((movie) => (
                             <MovieCard key={movie.id} movie={movie} />
                         ))}

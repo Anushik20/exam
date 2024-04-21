@@ -46,20 +46,21 @@ export default function SearchResultPage() {
                     </div>
                 ) : (
                     <>
-                        <h1 className='text-white text-5xl text-center font-bold'>Movie Trailer</h1>
-                        {searchResults.length > 0 ? (
-                            <div className="sm:flex sm:w-[1910px] flex flex-wrap gap-20 justify-center items-center mt-20">
-                                {searchResults.map((movie) => (
-                                    <MovieCard key={movie.id} movie={movie} />
-                                ))}
-                            </div>
-                        ) : (
-                            <div className="sm:w-[1890px] sm:pb-[700px] flex justify-center items-center gap-5 mt-20">
-                                <p className="sm:text-center text-6xl text-yellow-300"><MdErrorOutline /></p>
-                                <p className="sm:text-center font-bold text-4xl">No movies found with the name "{query}"</p>
-                            </div>
-                        )
-                        }
+                        <div className="flex justify-center items-center">
+                            {searchResults.length > 0 ? (
+                                <div className="sm:flex sm:w-[1910px] min-w-[1420px] w-3/4 bg-white flex flex-wrap gap-20 justify-center items-center pt-20 pb-20">
+                                    {searchResults.map((movie) => (
+                                        <MovieCard key={movie.id} movie={movie} />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="sm:w-[1890px] sm:pb-[700px] flex justify-center items-center w-[1430px] p-20 bg-white gap-5">
+                                    <p className="sm:text-center text-6xl text-yellow-300"><MdErrorOutline /></p>
+                                    <p className="sm:text-center font-bold text-4xl">No movies found with the name "{query}"</p>
+                                </div>
+                            )
+                            }
+                        </div>
                     </>
                 )}
             </div>

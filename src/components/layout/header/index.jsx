@@ -31,7 +31,7 @@ export default function Header() {
                 const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${encodeURIComponent(searchInput)}`);
                 if (response.ok) {
                     const data = await response.json();
-                    setSearchResults(data.results.map(movie => movie.title));
+                    setSearchResults(data.results.map(movie => movie.title).slice(0, 8));
                 } else {
                     console.error("Failed to fetch autocomplete data");
                 }
@@ -50,15 +50,24 @@ export default function Header() {
     const isSearchPage = location.pathname.startsWith("/search");
 
     return (
-        <header className=" sm:w-[1890px] sm:h-[500px] bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full h-[300px]">
-            <div className={`sm:flex-col sm:gap-[2px] flex justify-around items-center w-auto ${isSearchPage ? 'gap-[700px]' : 'gap-[1150px]'}`}>
-                <a href='/' className={`text-white font-bold text-4xl pt-[100px]`}>Movie <span className="font-bold text-4xl text-yellow-300">X</span></a>
+        <header className=" sm:w-[1890px] sm:h-[500px] bg-[#032541] w-full flex items-center justify-center">
+            <div className={`sm:flex-col sm:gap-[2px] flex justify-center items-center  ${isSearchPage ? 'gap-[400px]' : 'gap-[200px]'}`}>
+                <div className="flex justify-center items-center gap-40">
+                    <a href='/' className={`text-white font-bold text-4xl`}>Movie <span className="font-bold text-4xl text-yellow-300">X</span></a>
+
+                    <div className="flex gap-10">
+                        <div className="text-white text-xl">About Us</div>
+                        <div className="text-white text-xl">Terms Of Use</div>
+                        <div className="text-white text-xl">Contact Us</div>
+                    </div>
+                </div>
                 <form onSubmit={handleSearch}>
-                    <GoSearch className={`sm:left-[250px] text-white text-3xl relative left-[250px] top-[117px] ${isSearchPage ? 'sm:left-[350px] left-[850px]' : 'left-[250px]'}`} />
+                    <GoSearch className={`sm:left-[250px] text-gray-400 text-3xl relative left-[250px] top-[35px] ${isSearchPage ? 'sm:left-[350px] left-[450px]' : 'left-[250px]'}`} />
                     <input
                         type="text"
-                        className={`text-white border border-yellow-300 p-5 mt-[70px] relative rounded-[50px] bg-inherit ${isSearchPage ? 'sm:w-[400px] left-[10px] w-[900px]' : 'w-[300px]'}`}
+                        className={`p-2 rounded-[10px] mb-10 ${isSearchPage ? 'sm:w-[400px] left-[10px] w-[500px]' : 'w-[300px]'}`}
                         value={searchInput}
+                        placeholder="Search movies..."
                         onChange={(e) => setSearchInput(e.target.value)}
                     />
                     {searchResults.length > 0 && (

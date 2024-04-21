@@ -44,7 +44,7 @@ export default function TrailerPage() {
     return (
         <>
             <Header />
-            <div className='sm:w-[1900px] sm:h-[2150px] bg-gradient-to-r from-[#383838] to-[#8A8A8A] w-full h-[800px] flex flex-col gap-40 justify-center items-center'>
+            <div className='sm:w-[1900px] sm:h-[2150px] bg-white w-3/4 h-[800px] flex flex-col gap-40 justify-center items-center'>
                 <h1 className='text-white text-5xl text-center font-bold'>Movie Trailer</h1>
                 {loading ? (
                     <div className="flex justify-center items-center h-full">
@@ -52,12 +52,12 @@ export default function TrailerPage() {
                     </div>
                 ) : (
                     <div>
-                        <div className='rounded-[30px] border-[4px] border-yellow-300 relative w-[800px] h-[400px]'>
+                        <div className='relative w-[800px] h-[400px]'>
                             <iframe
                                 width="560"
                                 height="315"
                                 src={`https://www.youtube.com/embed/${videoKey}`}
-                                className='rounded-[30px] w-[790px] h-[390px]'
+                                className='w-[790px] h-[390px]'
                             ></iframe>
                             <PiBracketsSquareBold className='absolute bottom-[12px] right-[23px] text-white text-xl cursor-pointer' onClick={handleFullScreen} />
                         </div>

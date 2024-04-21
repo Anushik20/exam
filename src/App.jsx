@@ -6,16 +6,18 @@ import { Provider } from "react-redux";
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <Router>
-        <Routes>
-          <Route path="/" Component={Home} />
-          <Route path="/movie/:id" Component={Film} />
-          <Route path="/trailer-page/:id" Component={Tralier} />
-          <Route path="/search/:query" Component={SearchResult} />
-        </Routes>
-      </Router>
-    </Provider>
+    <div className="flex flex-col items-center">
+      <Provider store={store}>
+        <Router>
+          <Routes>
+            <Route path="/" Component={Home} />
+            <Route path="/movie/:id" Component={Film} />
+            <Route path="/trailer-page/:id" Component={Tralier} />
+            <Route path="/search/:query" Component={SearchResult} />
+          </Routes>
+        </Router>
+      </Provider>
+    </div>
   );
 };
 
